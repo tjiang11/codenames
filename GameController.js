@@ -18,6 +18,11 @@ codenames.config(['$locationProvider', '$routeProvider',
 				controller: 'SpymasterController'
 			}).
 			otherwise('/game');
+
+			$locationProvider.html5Mode({
+				enabled: true,
+				requireBase: false
+			});
 	}
 ]);
 
