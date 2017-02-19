@@ -2,14 +2,22 @@ var spymaster = angular.module('spymaster', []);
 
 spymaster.controller('SpymasterController', ['$scope',
 	function SpymasterController($scope) {
+		// var POSITIONS = [
+		// 	{x: 32.8, y: 32}, {x: 59.5, y: 32}, {x: 86, y: 32}, {x: 113, y: 32}, {x: 139.6, y: 32},
+		// 	{x: 32.8, y: 59}, {x: 59.5, y: 59}, {x: 86, y: 59}, {x: 113, y: 59}, {x: 139.6, y: 59},
+		// 	{x: 32.8, y: 86}, {x: 59.5, y: 86}, {x: 86, y: 86}, {x: 113, y: 86}, {x: 139.6, y: 86},
+		// 	{x: 32.8, y: 112.5}, {x: 59.5, y: 112.5}, {x: 86, y: 112.5}, {x: 113, y: 112.5}, {x: 139.6, y: 112.5},
+		// 	{x: 32.8, y: 139}, {x: 59.5, y: 139}, {x: 86, y: 139}, {x: 113, y: 139}, {x: 139.6, y: 139}
+		// ];
+
 		var POSITIONS = [
-			{x: 32.8, y: 32}, {x: 59.5, y: 32}, {x: 86, y: 32}, {x: 113, y: 32}, {x: 139.6, y: 32},
-			{x: 32.8, y: 59}, {x: 59.5, y: 59}, {x: 86, y: 59}, {x: 113, y: 59}, {x: 139.6, y: 59},
-			{x: 32.8, y: 86}, {x: 59.5, y: 86}, {x: 86, y: 86}, {x: 113, y: 86}, {x: 139.6, y: 86},
-			{x: 32.8, y: 112.5}, {x: 59.5, y: 112.5}, {x: 86, y: 112.5}, {x: 113, y: 112.5}, {x: 139.6, y: 112.5},
-			{x: 32.8, y: 139}, {x: 59.5, y: 139}, {x: 86, y: 139}, {x: 113, y: 139}, {x: 139.6, y: 139}
+			{x: 139, y: 32}, {x: 59.5, y: 32}, {x: 86, y: 32}, {x: 113, y: 32}, {x: 139.6, y: 32},
+			{x: 139, y: 59}, {x: 59.5, y: 59}, {x: 86, y: 59}, {x: 113, y: 59}, {x: 139.6, y: 59},
+			{x: 139, y: 86}, {x: 59.5, y: 86}, {x: 86, y: 86}, {x: 113, y: 86}, {x: 139.6, y: 86},
+			{x: 139, y: 112.5}, {x: 59.5, y: 112.5}, {x: 86, y: 112.5}, {x: 113, y: 112.5}, {x: 139.6, y: 112.5},
+			{x: 139, y: 139}, {x: 59.5, y: 139}, {x: 86, y: 139}, {x: 113, y: 139}, {x: 139.6, y: 139}
 		];
-		
+
 		var placeColors = function() {
 			var numRed = 9;
 			var numBlue = 8;
@@ -45,7 +53,6 @@ spymaster.controller('SpymasterController', ['$scope',
 		};
 		var colors = placeColors();
 
-
 		var ctx = document.getElementById('spymasterCard').getContext('2d');
 
 		var imgRed = new Image();
@@ -55,7 +62,7 @@ spymaster.controller('SpymasterController', ['$scope',
 			for (var i = 0; i < colors.length; i++) {
 				var position = POSITIONS[i];
 				if (colors[i] === 'red') {
-					ctx.drawImage(imgRed, position.x, position.y, 28.5, 28);
+					ctx.drawImage(imgRed, position.x, position.y, 85, 85);
 				}
 			}
 		};
@@ -63,7 +70,7 @@ spymaster.controller('SpymasterController', ['$scope',
 			for (var i = 0; i < colors.length; i++) {
 				var position = POSITIONS[i];
 				if (colors[i] === 'blue') {
-					ctx.drawImage(imgBlue, position.x, position.y, 28.5, 28);
+					ctx.drawImage(imgBlue, position.x, position.y, 85, 85);
 				}
 			}
 		};
@@ -71,7 +78,7 @@ spymaster.controller('SpymasterController', ['$scope',
 			for (var i = 0; i < colors.length; i++) {
 				var position = POSITIONS[i];
 				if (colors[i] === 'assassin') {
-					ctx.drawImage(imgAssassin, position.x, position.y, 28.5, 28);
+					ctx.drawImage(imgAssassin, position.x, position.y, 85, 85);
 				}
 			}
 		};
