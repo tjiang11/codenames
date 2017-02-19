@@ -1,0 +1,9 @@
+<div class="card" ng-class="{red: $ctrl.color === 'RED', blue: $ctrl.color === 'BLUE', civilian: $ctrl.color === 'CIV', assassin: $ctrl.color === 'ASSASSIN'}" ng-click="$ctrl.changeColor($scope.colorSelected)">
+	<div class="content">
+		<div class="table">
+    		<div class="table-cell">
+        		<p>{{$ctrl.content}}</p>
+    		</div>
+		</div>
+	</div>
+</div>
