@@ -28,6 +28,8 @@ codenames.config(['$locationProvider', '$routeProvider',
 
 codenames.controller('GameController', ['$scope', 'ModalService', 'colorTrackerService', 'customWordService',
 	function GameController($scope, ModalService, colorTrackerService, customWordService) {
+		$scope.timerRunning = false;
+		$scope.timeOut = false;
 		customWordService.init();
 		var DEFAULT_WORDS = [];
 		jQuery.get("res/default_words", function(data) {
@@ -88,6 +90,36 @@ codenames.controller('GameController', ['$scope', 'ModalService', 'colorTrackerS
 				});
 			});
 		};
+
+		var timerInterval;
+		$scope.startTimer = function() {
+			$scope.timeOut = false;
+			$scope.timerRunning = true;
+			clearInterval(timerInterval);
+			console.log("start timer");
+			var elem = document.getElementById('timerJuice');
+			elem.style.width = 0;
+			var width = 1;
+			timerInterval = setInterval(function() {
+				width++;
+				elem.style.width = width + '%';
+				if (width === 100) {
+					clearInterval(timerInterval);
+					$scope.timerRunning = false;
+					$scope.timeOut = true;
+				}
+			}, 1200);
+		};
+
+		$scope.stopTimer = function() {
+			$scope.timeOut = false;
+			$scope.timerRunning = false;
+			console.log("stop timer");
+			var elem = document.getElementById('timerJuice');
+			var width = 0;
+			elem.style.width = 0;
+			clearInterval(timerInterval);
+		};
 	}
 ]);
 
@@ -121,14 +153,20 @@ codenames.controller('ComplexController', [
 codenames.component('codenamesCard', {
     templateUrl: 'codenames_card.html',
 	controller: function($scope, colorTrackerService) {
-		this.nut = 'cashew';
 		this.color = '';
+		this.colorAgent = '';
 		this.colored = true;
 		this.changeColor = function() {
 			if (this.color === colorTrackerService.getCurrentColor()) {
 				this.color = '';
+				this.colorAgent = '';
 			} else {
 				this.color = colorTrackerService.getCurrentColor();
+				if (this.color === 'RED' || this.color === 'BLUE' || this.color === 'CIV') {
+					this.colorAgent = Math.random() < .5 ? this.color + '1' : this.color + '2';
+				} else {
+					this.colorAgent = '';
+				}
 			}
 		};
 	},

@@ -7,7 +7,6 @@ body {
 .codenames-logo {
 	height: 8vh;
 	padding-bottom: 5vh;
-	margin-bottom: 3vh;
 	background-image: url("images/codenameslogo.png");
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -16,7 +15,7 @@ body {
 
 .card {
 	background-image: url("images/card_background.png");
-	background-size: cover;
+	background-size: 100% 100%;
 	border: 3px solid black;
 	border-radius: 10px;
 	float: left;
@@ -98,20 +97,38 @@ body {
 	transform: translateY(-50%);
 }
 
-.red {
+.red1 {
 	background-image: url("images/red_agent_1.png");
 	background-size: cover;
 	color: transparent;
 }
 
-.blue {
+.blue1 {
 	background-image: url("images/blue_agent_1.png");
 	background-size: cover;
 	color: transparent;
 }
 
-.civilian {
+.civilian1 {
 	background-image: url("images/civilian_1.png");
+	background-size: cover;
+	color: transparent;
+}
+
+.red2 {
+	background-image: url("images/red_agent_2.png");
+	background-size: cover;
+	color: transparent;
+}
+
+.blue2 {
+	background-image: url("images/blue_agent_2.png");
+	background-size: cover;
+	color: transparent;
+}
+
+.civilian2 {
+	background-image: url("images/civilian_2.png");
 	background-size: cover;
 	color: transparent;
 }
@@ -129,7 +146,7 @@ body {
 }
 
 .agent-select {
-	background-size: cover;
+	background-size: 100% 100%;
 	border-radius: 6px;
 	height: 100px;
 	margin-bottom: 10px;
@@ -198,6 +215,38 @@ body {
     cursor: pointer;
 }
 
+.timerRunning {
+	border: 2px solid #53e88e;
+}
+
+.timeOut {
+	background-color: #ffa100;
+}
+
+#timerBar {
+	width: 100%;
+	height: 30px;
+	background-color: grey;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+#timerJuice {
+	width: 1%;
+	height: 30px;
+	background-color: #53e88e;
+}
+
+#startTimer {
+	float: left;
+}
+#stopTimer {
+	float: right;
+}
+
+#spymasterCard {
+	margin-top: 30px;
+}
 
 canvas {
 	background: url("images/spymaster_card.png");
